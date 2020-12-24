@@ -1,0 +1,37 @@
+public static void ValidateCode(string code)
+{
+    if (string.IsNullOrEmpty(code))
+    {
+        code = "chr1s7ma5";
+    }
+    AssemblyName name = new AssemblyName("assembly1");
+    TypeBuilder builder3 = AppDomain.CurrentDomain.DefineDynamicAssembly(name, AssemblyBuilderAccess.Run).DefineDynamicModule("module1").DefineType("type1");
+    Type[] parameterTypes = new Type[] { typeof(byte[]), typeof(byte[]) };
+    MethodBuilder builder4 = builder3.DefineMethod("method1", MethodAttributes.Static | MethodAttributes.Public, CallingConventions.Standard, typeof(bool), parameterTypes);
+    SignatureHelper localVarSigHelper = SignatureHelper.GetLocalVarSigHelper();
+    localVarSigHelper.AddArgument(typeof(int));
+    localVarSigHelper.AddArgument(typeof(byte));
+    localVarSigHelper.AddArgument(typeof(byte));
+    localVarSigHelper.AddArgument(typeof(byte[]));
+    byte[] sourceArray = Array.Empty<byte>();
+    using (Stream stream = Assembly.GetExecutingAssembly().GetManifestResourceStream("Assembly1.file"))
+    {
+        MemoryStream destination = new MemoryStream();
+        stream.CopyTo(destination);
+        sourceArray = destination.ToArray();
+    }
+    byte[] destinationArray = new byte[sourceArray.Length - 0x12];
+    byte[] buffer3 = new byte[0x12];
+    Array.Copy(sourceArray, destinationArray, (int) (sourceArray.Length - 0x12));
+    Array.Copy(sourceArray, sourceArray.Length - 0x12, buffer3, 0, 0x12);
+    builder4.SetMethodBody(destinationArray, 5, localVarSigHelper.GetSignature(), null, null);
+    object[] parameters = new object[] { buffer3, Encoding.ASCII.GetBytes(code) };
+    if ((bool) builder3.CreateType().GetMethods()[0].Invoke(null, parameters))
+    {
+        Console.WriteLine("Correct code");
+    }
+    else
+    {
+        Console.WriteLine("Wrong code");
+    }
+}

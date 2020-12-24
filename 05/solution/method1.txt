@@ -1,0 +1,13 @@
+// arg1 = buffer, taken from "Assembly1.file"
+// arg2 = code. by default it is "chr1s7ma5"
+
+public static bool method1(byte[] arg1, byte[] arg2)
+{
+    for (byte i = 0; arg1.Length > i; i = (byte) (i + 1))
+    {
+        byte num2 = arg2[(arg2.Length - (i % (arg2.Length - 1))) - 1];
+        arg1[i] = (byte) ~(arg1[i] ^ ~num2);
+    }
+    byte num4 = 0;
+    return (bool) num4;
+}
