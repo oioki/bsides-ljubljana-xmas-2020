@@ -6,7 +6,7 @@
 
 Binary exploitation challenge. Let's analyze the file in Ghidra:
 
-![disassembly in Ghidra](ghidra.png)
+![disassembly in Ghidra](solution/ghidra.png)
 
 In order to get a flag, we need to jump to `win()` by using usual buffer overflow, while setting `EDI` and `ESI` registers to `0xdeadbeef` and `0x1337c0de`, respectively.
 
