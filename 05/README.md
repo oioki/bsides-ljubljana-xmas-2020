@@ -4,7 +4,7 @@
 
 [ElfsProgram.zip](ElfsProgram.zip)
 
-I found this one quite challenging. There must be a more straightforward, but this also worked for me:
+I found this one quite challenging. There must be a more straightforward way, but this also worked for me:
 
 1. Check contents of the file with `binwalk -e --dd='.*'  ConsoleApp.exe`. This will yield a second executable, [AC0.exe](solution/AC0.exe).
 
@@ -15,11 +15,14 @@ I found this one quite challenging. There must be a more straightforward, but th
 4. Also check the [Assembly1.file](solution/Assembly1.file), which is one of static resources in AC0.exe.
 
 5. According to ValidateCode method, Assembly1.file is the concatenation of some machine code in MSIL opcodes + 18 bytes at the end of some ciphertext.
-See [Assembly1.program.file](solution/Assembly1.program.file) and [Assembly1.ciphertext.file](solution/Assembly1.ciphertext.file)
+See [Assembly1.bin.file](solution/Assembly1.bin.file) and [Assembly1.ciphertext.file](solution/Assembly1.ciphertext.file)
 
 Few resources which helped me to understand what's going on:
+
 <https://docs.microsoft.com/en-us/dotnet/api/system.array.copy?view=net-5.0#System_Array_Copy_System_Array_System_Int64_System_Array_System_Int64_System_Int64_>
+
 <https://docs.microsoft.com/en-us/dotnet/api/system.reflection.emit.methodbuilder.setmethodbody?view=netframework-4.8>
+
 <https://docs.microsoft.com/en-us/dotnet/api/system.reflection.emit.typebuilder.definemethod?view=net-5.0#System_Reflection_Emit_TypeBuilder_DefineMethod_System_String_System_Reflection_MethodAttributes_System_Reflection_CallingConventions_System_Type_System_Type___>
 
 6. ValidateCode runs this MSIL code and does something with two strings and then compares the result with ciphertext.
