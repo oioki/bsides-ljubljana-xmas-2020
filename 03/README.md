@@ -1,8 +1,8 @@
 # Day 3
 
->>> Santa got a secret message from a gifted child. Can you help him decode the message and save Christmas?
+> Santa got a secret message from a gifted child. Can you help him decode the message and save Christmas?
 
-<secret-message.zip>
+[secret-message.zip](secret-message.zip)
 
 The given zip file is password protected. Bruteforcing it using let's say [this wordlist](https://github.com/danielmiessler/SecLists/blob/master/Passwords/xato-net-10-million-passwords-10000.txt):
 

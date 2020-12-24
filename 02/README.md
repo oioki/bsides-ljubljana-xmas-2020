@@ -1,6 +1,6 @@
 # Day 2
 
->>> Santa's checklist website for presents he already put in his sleigh keeps crashing. Can you help him find out what the problem is? Url for the website is: https://sleigh.owasp.si
+> Santa's checklist website for presents he already put in his sleigh keeps crashing. Can you help him find out what the problem is? Url for the website is: https://sleigh.owasp.si
 
 When visiting given URL [https://sleigh.owasp.si/], we get "ERR_TOO_MANY_REDIRECTS" error in the browser.
 

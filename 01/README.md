@@ -1,6 +1,6 @@
 # Day 1
 
->>> In the past year the OWASP community created an amazing project to teach OWASP TOP 10 vulnerabilities. Can you find it?
+> In the past year the OWASP community created an amazing project to teach OWASP TOP 10 vulnerabilities. Can you find it?
 
 Click on the link at the bottom <https://owasp.si/>. These people are organizers of this CTF.
 
